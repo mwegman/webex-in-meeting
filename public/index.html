@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+	<meta http-equiv="origin-trial" content="AlnGfEty64+Qt6ZsHSTzXQKQgOlRlLiG8edMhpbB/XNvuQm4mN7salQyzD1J7VrN8HPcHPOqAeoED5VZ5rmAnQoAAABSeyJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJmZWF0dXJlIjoiV2luZG93UGxhY2VtZW50IiwiZXhwaXJ5IjoxNjA1NjQwMzA4fQ==">
+
+	<title>Webex In-Meeting App</title>
+
+	<link rel='icon' type='image/png' href='/favicon.webp'>
+	<link rel='stylesheet' href='/global.css'>
+	<link rel='stylesheet' href='/build/bundle.css'>
+
+	<script defer src='/build/bundle.js'></script>
+</head>
+<script>
+	const Media = () => {
+		let mediaStream;
+	
+		const getStream = async () => {
+			if (!mediaStream) {
+				mediaStream = await navigator.mediaDevices.getUserMedia({video: true});
+			}
+			return new MediaStream([mediaStream.getVideoTracks()[0]]);
+		};
+	
+		return new class {
+			get localVideoStream() {
+				return getStream();
+			}
+			get remoteVideoStream() {
+				return getStream();
+			}
+			get remoteShareStream() {
+				return getStream();
+			}
+		};
+	};
+
+	/*
+	window.addEventListener("DOMContentLoaded", function() {
+		console.log('**** LOADED');
+		let component = document.querySelector('webex-in-meeting');
+		component.streams = Media();
+	});
+	*/
+</script>
+
+<body>
+	<!-- <webex-in-meeting /> -->
+</body>
+</html>

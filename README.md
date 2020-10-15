@@ -1,7 +1,3 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
-
----
-
 # Webex In-Meeting App
 
 This is a library to display the in-meeting portion of a video conference.
